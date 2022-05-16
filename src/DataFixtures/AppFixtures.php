@@ -14,6 +14,7 @@ class AppFixtures extends Fixture
         $user->setEmail('adams@gmail.com');
         $user->setRoles(["ROLE_PARENT"]);
         $user->setPassword('$2y$13$6Q8tj6dCj9E8qlzYjv3ks.r7zjFpCjr3CyT2pg4ggGuLLy03WsCL2');
+
         $user1 = new User();
         $user1->setEmail('adam@gmail.com');
         $user1->setRoles(["ROLE_ECOLE"]);
@@ -21,7 +22,6 @@ class AppFixtures extends Fixture
 
         $manager->persist($user);
         $manager->persist($user1);
-
         $manager->flush();
     }
 }
