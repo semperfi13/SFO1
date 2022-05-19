@@ -31,6 +31,11 @@ class Classe
      */
     private $eleves;
 
+    public function __toString()
+    {
+        return $this->nom;
+    }
+
     public function __construct()
     {
         $this->eleves = new ArrayCollection();

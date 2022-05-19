@@ -17,8 +17,8 @@ class EleveType extends AbstractType
             ->add('nom')
             ->add('prenom')
             ->add('age')
-            ->add('parent', StringType::class)
-            ->add('classe', StringType::class)
+            ->add('parent')
+            ->add('classe')
             ->add('Ajouter', SubmitType::class, ["label" => "Ajouter un élève"]);
     }
 

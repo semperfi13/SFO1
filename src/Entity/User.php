@@ -73,6 +73,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $isActive;
 
+    public function __toString()
+    {
+        return $this->nom . " " . $this->prenom;
+    }
+
     public function __construct()
     {
         $this->messages = new ArrayCollection();

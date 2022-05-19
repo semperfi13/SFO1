@@ -39,7 +39,7 @@ class EcoleeleveController extends AbstractController
 
             return $this->redirectToRoute("app_ecoleeleve");
         }
-        return $this->render('ecleeleve/add.html.twig', [
+        return $this->render('ecoleeleve/add.html.twig', [
             "formulaire" => $form->createView()
         ]);
     }
@@ -56,7 +56,7 @@ class EcoleeleveController extends AbstractController
             $this->addFlash("success", "Elève modifiée");
             return $this->redirectToRoute("app_ecoleeleve");
         }
-        return $this->render('eccoleeleve/edit.html.twig', [
+        return $this->render('ecoleeleve/edit.html.twig', [
             "formulaire" => $form->createView()
         ]);
     }
