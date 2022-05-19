@@ -12,13 +12,17 @@ class AppFixtures extends Fixture
     {
         $user = new User();
         $user->setEmail('adams@gmail.com');
+        $user->setNom('adams');
         $user->setRoles(["ROLE_PARENT"]);
-        $user->setPassword('$2y$13$6Q8tj6dCj9E8qlzYjv3ks.r7zjFpCjr3CyT2pg4ggGuLLy03WsCL2');
+        $user->setIsActive(1);
+        $user->setPassword('$2y$13$JTarRZarpqGSSpcpDMakv.oJYAR4J8PKFjJK6RZy/Mj42XKReazJO');
 
         $user1 = new User();
         $user1->setEmail('adam@gmail.com');
+        $user1->setNom('adam');
+        $user1->setIsActive(1);
         $user1->setRoles(["ROLE_ECOLE"]);
-        $user1->setPassword('$2y$13$gD6lpyQ5xUZNIcMl6e5j8OJrH0DdnLMJXZH6xLgMq2Fh59DGKFz22');
+        $user1->setPassword('$2y$13$JTarRZarpqGSSpcpDMakv.oJYAR4J8PKFjJK6RZy/Mj42XKReazJO');
 
         $manager->persist($user);
         $manager->persist($user1);

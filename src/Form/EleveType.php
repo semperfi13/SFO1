@@ -2,25 +2,30 @@
 
 namespace App\Form;
 
-use App\Entity\Classe;
+use App\Entity\Eleve;
+use Doctrine\DBAL\Types\StringType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class ClasseType extends AbstractType
+class EleveType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add("nom")
-            ->add("Ajouter", SubmitType::class, ["label" => "Ajouter la classe"]);
+            ->add('nom')
+            ->add('prenom')
+            ->add('age')
+            ->add('parent', StringType::class)
+            ->add('classe', StringType::class)
+            ->add('Ajouter', SubmitType::class, ["label" => "Ajouter un élève"]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Classe::class,
+            'data_class' => Eleve::class,
         ]);
     }
 }

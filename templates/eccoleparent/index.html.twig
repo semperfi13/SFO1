@@ -1,0 +1,38 @@
+{% extends 'base.ecole.html.twig' %}
+
+{% block title %} EccoleparentController!{% endblock %}
+
+{% block body %}
+<h3>La liste des parents</h3>
+   <div class="card">
+        <div class="card-body">
+            <table class="table table-default">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>NOM</th>
+                        <th>PRENOM</th>
+                        <th>TELEPHONE</th>
+                        <th>EMAIL</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for p in user %}
+                        <tr>
+                            <td>{{p.id}}</td>
+                            <td>{{p.nom}}</td>
+                            <td>{{p.prenom}}</td>
+                            <td>{{p.telephone}}</td>
+                            <td>{{p.email}}</td>
+                            <td>
+                                <a href="{{path("app_ecoleparent_edit", {id:p.id} )}}" class="btn btn-primary btn">Modifier</a>
+                                <a href="{{path("app_ecoleparent_delete", {id:p.id} )}}" class="btn btn-danger btn">Supprimer</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+<a href="{{path("app_ecoleparent_add")}}" class="btn btn-primary">Ajouter un parent</a>
+{% endblock %}

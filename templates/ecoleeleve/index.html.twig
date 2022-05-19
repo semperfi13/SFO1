@@ -1,0 +1,40 @@
+{% extends 'base.ecole.html.twig' %}
+
+{% block title %}Ecole eleve{% endblock %}
+
+{% block body %}
+<h3>La liste des élèves</h3>
+   <div class="card">
+        <div class="card-body">
+            <table class="table table-default">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>NOM</th>
+                        <th>PRENOM</th>
+                        <th>AGE</th>
+                        <th>PARENT</th>
+                        <th>CLASSE</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for E in eleve %}
+                        <tr>
+                            <td>{{E.id}}</td>
+                            <td>{{E.nom}}</td>
+                            <td>{{E.prenom}}</td>
+                            <td>{{E.age}}</td>
+                            <td>{{E.parent}}</td>
+                            <td>{{E.classe}}</td>
+                            <td>
+                                <a href="{{path("app_ecoleeleve_edit", {id:E.id} )}}" class="btn btn-primary btn">Modifier</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+<a href="{{path("app_ecoleeleve_add")}}" class="btn btn-primary">Ajouter un élève</a>
+
+{% endblock %}

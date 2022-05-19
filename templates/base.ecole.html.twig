@@ -22,7 +22,7 @@
   </button>
   <div class="navbar-nav">
     <div class="nav-item text-nowrap">
-      <a class="nav-link px-3" href="#">Deconnecter</a>
+      <a class="nav-link px-3" href="{{path("app_logout")}}">Deconnecter</a>
     </div>
   </div>
 </header>
@@ -40,19 +40,19 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="{{path("app_ecoleparent")}}">
               <span data-feather="file"></span>
               Parents
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="{{path("app_ecoleeleve")}}">
               <span data-feather="shopping-cart"></span>
               Elèves
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="{{path("app_ecoleclasse")}}">
               <span data-feather="users"></span>
               Classes
             </a>
