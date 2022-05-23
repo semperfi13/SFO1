@@ -12,14 +12,12 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
-class ParentType extends AbstractType
+class ParentpasswordType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('nom')
-            ->add('prenom')
-            ->add('telephone')
+
             ->add('mdp', RepeatedType::class, [
                 "mapped" => false,
                 "type" => PasswordType::class,
@@ -29,11 +27,12 @@ class ParentType extends AbstractType
                 "constraints" => [
                     new Length(null, 6),
                     new NotBlank()
+
                 ]
+
+
             ])
-            ->add('email')
-            ->add('isActive')
-            ->add('Ajouter', SubmitType::class, ["label" => "Ajouter un parent"]);
+            ->add('Enregistrer', SubmitType::class, ["label" => "Enregistrer"]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

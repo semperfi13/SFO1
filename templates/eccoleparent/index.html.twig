@@ -14,6 +14,7 @@
                         <th>PRENOM</th>
                         <th>TELEPHONE</th>
                         <th>EMAIL</th>
+                        <th>isActive</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -24,9 +25,10 @@
                             <td>{{p.prenom}}</td>
                             <td>{{p.telephone}}</td>
                             <td>{{p.email}}</td>
+                            <td>{{p.isActive}}</td>
                             <td>
                                 <a href="{{path("app_ecoleparent_edit", {id:p.id} )}}" class="btn btn-primary btn">Modifier</a>
-                                <a href="{{path("app_ecoleparent_delete", {id:p.id} )}}" class="btn btn-danger btn">Supprimer</a>
+                                <a href="{{path("app_ecoleparentpassword_edit", {id:p.id} )}}" class="btn btn-secondary btn">Edit pass</a>
                             </td>
                         </tr>
                     {% endfor %}
