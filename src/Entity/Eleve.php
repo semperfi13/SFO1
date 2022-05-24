@@ -66,6 +66,14 @@ class Eleve
      */
     private $Matricule;
 
+
+    public function __toString()
+    {
+        return $this->notes;
+    }
+
+
+
     public function __construct()
     {
         $this->notes = new ArrayCollection();

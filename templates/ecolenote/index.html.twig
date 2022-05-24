@@ -11,24 +11,21 @@
                         <th>#</th>
                         <th>MATRICULE</th>
                         <th>NOM</th>
-                        <th>PRENOM</th>
-                        <th>AGE</th>
-                        <th>PARENT</th>
-                        <th>CLASSE</th>
+                        <th>MATIERE</th>
+                        <th>NOTES</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for n in notes %}
                         <tr>
-                            <td>{{E.id}}</td>
-                            <td>{{E.matricule}}</td>
-                            <td>{{E.nom}}</td>
-                            <td>{{E.prenom}}</td>
-                            <td>{{E.age}}</td>
-                            <td>{{E.parent}}</td>
-                            <td>{{E.classe}}</td>
+                            <td>{{n.id}}</td>
+                            <td>{{n.eleve.matricule}}</td>
+                            <td>{{n.eleve.nom}}</td>
+                            <td>{{n.matiere}}</td>
+                            <td>{{n.note}}</td>
                             <td>
-                                <a href="#" class="btn btn-primary btn">Modifier la note</a>
+                                <a href="{{path("app_ecolenote_add_continuer_edit",{id:n.id})}}" class="btn btn-primary btn">Modifier</a>
+                                <a href="{{path("app_ecolenote_add_continuer_delete",{id:n.id})}}" class="btn btn-danger btn">Supprimer</a>
                             </td>
                         </tr>
                     {% endfor %}
