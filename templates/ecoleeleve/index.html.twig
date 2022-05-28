@@ -10,6 +10,7 @@
                 <thead>
                     <tr>
                         <th>#</th>
+                        <th>PHOTO</th>
                         <th>MATRICULE</th>
                         <th>NOM</th>
                         <th>PRENOM</th>
@@ -22,6 +23,11 @@
                     {% for E in eleve %}
                         <tr>
                             <td>{{E.id}}</td>
+                            <td>
+                                {% if E.photo %}
+                                <img src="{{asset("images/" ~E.photo )}}" width=80px alt="image">
+                                {% endif %}
+                            </td>
                             <td>{{E.matricule}}</td>
                             <td>{{E.nom}}</td>
                             <td>{{E.prenom}}</td>

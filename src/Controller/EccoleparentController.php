@@ -43,7 +43,7 @@ class EccoleparentController extends AbstractController
             $user->setPassword($mdphasher);
 
             $userRepo->add($user, true);
-            $this->addFlash("w", "Parent ajoutée");
+            $this->addFlash("sucess", "Parent ajoutée");
 
             return $this->redirectToRoute("app_ecoleparent");
         }

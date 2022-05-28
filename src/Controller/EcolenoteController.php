@@ -30,10 +30,9 @@ class EcolenoteController extends AbstractController
         $email->from("adamsnikiema187@gmail.com")
             ->to("semperfinkm@gmail.com")
             ->subject("Test de email")
-            ->text("Salut cher YENTECK");
+            ->text("Salut cher SEMPERFI");
 
         $mailer->send($email);
-        dd("mail envoyé");
     }
 
 

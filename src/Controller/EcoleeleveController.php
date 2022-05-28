@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Eleve;
 use App\Form\EleveType;
 use App\Repository\EleveRepository;
+use App\service\UploaderService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -26,7 +27,7 @@ class EcoleeleveController extends AbstractController
     /**
      * @Route("/ecole/eleve/add", name="app_ecoleeleve_add")
      */
-    public function add(Request $request, EleveRepository $eleveRepo): Response
+    public function add(Request $request, EleveRepository $eleveRepo, UploaderService $uploaderService): Response
     {
         $eleve = new Eleve();
         $form = $this->createForm(EleveType::class, $eleve);
@@ -34,8 +35,17 @@ class EcoleeleveController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
+            $photoFile = $form->get("photoFile")->getData();
+            $nouveauNomPhoto = $uploaderService->uploader($this->getParameter("images_directory"), $photoFile);
+
+            $eleve->setphoto($nouveauNomPhoto);
             $eleveRepo->add($eleve, true);
-            $this->addFlash("w", "Elève ajoutée");
+
+            //dd($this->getParameter("images_directory"));
+
+
+
+            $this->addFlash("success", "Elève ajoutée");
 
             return $this->redirectToRoute("app_ecoleeleve");
         }

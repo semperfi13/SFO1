@@ -22,7 +22,7 @@
   </button>
   <div class="navbar-nav">
     <div class="nav-item text-nowrap">
-      <a class="nav-link px-3" href="{{path("app_logout")}}">Deconnecter</a>
+      <a class="nav-link px-3" href="{{path("app_logout")}}" onclick="confirm('Êtes vous sur de vouloir vous deconnectez ?')">Deconnecter</a>
     </div>
   </div>
 </header>
@@ -41,19 +41,19 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{path("app_ecoleparent")}}">
-              <span data-feather="file"></span>
+              <span data-feather="users"></span>
               Parents
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{path("app_ecoleeleve")}}">
-              <span data-feather="shopping-cart"></span>
+              <span data-feather="users"></span>
               Elèves
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{path("app_ecoleclasse")}}">
-              <span data-feather="users"></span>
+              <span data-feather="home"></span>
               Classes
             </a>
           </li>
@@ -71,7 +71,7 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">
-              <span data-feather="layers"></span>
+              <span data-feather="message-square"></span>
               Messages
             </a>
           </li>

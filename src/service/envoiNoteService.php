@@ -5,15 +5,16 @@ use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
 
 class envoiNoteService {
-    private $mailler;
+    private $mailer;
     public function __construct(MailerInterface $mailer)
     {
         $this->mailer=$mailer;
     }
 
-    public function envoyerNotes($tablenotes)
+    public function envoyerNotes($tableNotes)
     {
-        foreach($tablenotes as $tab)
+        foreach($tableNotes as $tab)
+
         {
             $emailParent=$tab["email"];
             $note=$tab["note"];
@@ -36,8 +37,3 @@ class envoiNoteService {
     }
 
 }
-
-
-
-
-?>

@@ -21,7 +21,7 @@
                             <td>{{classe.nom}}</td>
                             <td>
                                 <a href="{{path("app_ecoleclasse_edit", {id:classe.id})}}" class="btn btn-primary btn">Modifier</a>
-                                <a href="{{path("app_ecoleclasse_delete", {id:classe.id} )}}" class="btn btn-danger btn" onclick="confirm('Êtes vous sur de vouloir supprimer cet élément ?')"">Supprimer</a>
+                                <a href="{{path("app_ecoleclasse_delete", {id:classe.id} )}}" class="btn btn-danger btn" onclick="confirm('Êtes vous sur de vouloir supprimer cet élément ?')">Supprimer</a>
                             </td>
                         </tr>
                     {% endfor %}

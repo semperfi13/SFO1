@@ -14,8 +14,7 @@ class NoteType extends AbstractType
         $builder
             ->add('matiere')
             ->add('note')
-            ->add('eleve')
-        ;
+            ->add('eleve');
     }
 
     public function configureOptions(OptionsResolver $resolver): void

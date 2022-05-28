@@ -66,6 +66,11 @@ class Eleve
      */
     private $Matricule;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $photo;
+
 
     public function __toString()
     {
@@ -244,6 +249,18 @@ class Eleve
     public function setMatricule(?string $Matricule): self
     {
         $this->Matricule = $Matricule;
+
+        return $this;
+    }
+
+    public function getPhoto(): ?string
+    {
+        return $this->photo;
+    }
+
+    public function setPhoto(string $photo): self
+    {
+        $this->photo = $photo;
 
         return $this;
     }

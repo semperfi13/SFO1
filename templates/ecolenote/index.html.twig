@@ -25,7 +25,7 @@
                             <td>{{n.note}}</td>
                             <td>
                                 <a href="{{path("app_ecolenote_add_continuer_edit",{id:n.id})}}" class="btn btn-primary btn">Modifier</a>
-                                <a href="{{path("app_ecolenote_add_continuer_delete",{id:n.id})}}" class="btn btn-danger btn">Supprimer</a>
+                                <a href="{{path("app_ecolenote_add_continuer_delete",{id:n.id})}}" class="btn btn-danger btn" onclick="confirm('Êtes vous sur de vouloir supprimer cet élément ?')">Supprimer</a>
                             </td>
                         </tr>
                     {% endfor %}
