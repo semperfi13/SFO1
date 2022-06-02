@@ -36,7 +36,7 @@
         </li>
       </ul>-
       <form class="d-flex">
-          <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-bs-toggle="dropdown" aria-expanded="false">Settings</a>
+          <a class="nav-link" href="{{path("app_logout")}}" onclick="confirm('Êtes vous sur de vouloir vous deconnectez ?')">Deconnecter</a>
       </form>
     </div>
   </div>
@@ -44,11 +44,12 @@
 
 <div class="nav-scroller bg-body shadow-sm">
   <nav class="nav nav-underline" aria-label="Secondary navigation">
-    <a class="nav-link active" aria-current="page" href="#">Dashboard</a>
+    <a class="nav-link {{isActive (["app_parent"])}} "  href="{{path("app_parent")}}">Dashboard</a>
 
-    <a class="nav-link" href="#">Elèves</a>
-    <a class="nav-link" href="#">Messages</a>
+    <a class="nav-link  {{isActive (["app_parenteleve","app_parenteleve_notes"])}}" href="{{path("app_parenteleve")}}">Elèves</a>
+    <a class="nav-link " href="#">Messages</a>
     <a class="nav-link" href="#">Actualités</a>
+    <a class="nav-link" href="#" >Settings</a>
 
   </nav>
 </div>

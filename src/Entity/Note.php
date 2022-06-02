@@ -32,6 +32,11 @@ class Note
      */
     private $eleve;
 
+    public function __toString()
+    {
+        return $this->eleve;
+    }
+
     public function getId(): ?int
     {
         return $this->id;

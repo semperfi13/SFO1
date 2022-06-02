@@ -4,7 +4,7 @@ namespace App\EventListener;
 
 use Symfony\Component\HttpKernel\Event\RequestEvent;
 
-class LoginListener
+class LoginEventListener
 
 {
     public function onKernelRequest(RequestEvent $event)

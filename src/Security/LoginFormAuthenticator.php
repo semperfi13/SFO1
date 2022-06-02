@@ -2,6 +2,7 @@
 
 namespace App\Security;
 
+use phpDocumentor\Reflection\PseudoTypes\True_;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -50,8 +51,10 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
         }
 
         $roles = $token->getUser()->getRoles();
+        //$isActive = $token->getUser()->isIsActive();
 
-        if (in_array("ROLE_PARENT", $roles)) {
+
+        if (in_array("ROLE_PARENT", $roles) ) {
             return new RedirectResponse($this->urlGenerator->generate('app_parent'));
         } else return new RedirectResponse($this->urlGenerator->generate('app_ecole'));
 

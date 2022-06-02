@@ -32,6 +32,11 @@ class Historiqueconnexion
      */
     private $ip;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $Url;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -69,6 +74,18 @@ class Historiqueconnexion
     public function setIp(string $ip): self
     {
         $this->ip = $ip;
+
+        return $this;
+    }
+
+    public function getUrl(): ?string
+    {
+        return $this->Url;
+    }
+
+    public function setUrl(?string $Url): self
+    {
+        $this->Url = $Url;
 
         return $this;
     }

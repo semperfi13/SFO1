@@ -4,10 +4,12 @@ namespace App\Controller;
 
 use App\Entity\Classe;
 use App\Entity\Note;
+use App\Form\ImporterType;
 use App\Form\NoteType;
 use App\Repository\ClasseRepository;
 use App\Repository\NoteRepository;
 use App\service\envoiNoteService;
+use Box\Spout\Reader\Common\Creator\ReaderEntityFactory;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
@@ -178,5 +180,35 @@ class EcolenoteController extends AbstractController
         $noteRepo->remove($note, true);
         $this->addFlash("success", "Note supprimée");
         return $this->redirectToRoute("app_ecolenote");
+    }
+
+
+    /**
+     * @Route("/ecole/note/importer", name="app_ecolenote_importer")
+     */
+    public function importer(Request $request): Response
+    {
+        $form = $this->createForm(ImporterType::class);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $fichier = $form->get("fichier")->getData();
+
+            $chemin = $fichier->getPathName();
+            $reader = ReaderEntityFactory::createReaderFromFile($chemin);
+            $reader->open($chemin);
+            $tab = [];
+            foreach ($reader->getSheetIterator() as $sheet) {
+                foreach ($sheet->getRowIterator() as $rom) {
+
+                    $tab[] = $rom->toArray();
+                }
+            }
+
+            dd($tab);
+        }
+        return $this->render('ecolenote/importer.html.twig', [
+            "formulaire" => $form->createView()
+        ]);
     }
 }

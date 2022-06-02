@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+{% block title %}Parent eleve!{% endblock %}
+{% block body %}
+<h3>Vos élèves {{app.user}}</h3>
+   <div class="card">
+        <div class="card-body">
+            <table class="table table-default">
+                <thead>
+                    <tr>
+                        <th>MATRICULE</th>
+                        <th>NOM</th>
+                        <th>PRENOM</th>
+                        <th>CLASSE</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for e in eleves %}
+                        <tr>
+                            <td>{{e.matricule}}</td>
+                            <td>{{e.nom}}</td>
+                            <td>{{e.prenom}}</td>
+                            <td>{{e.classe}}</td>
+                            <td>
+                                <a href="{{path("app_parenteleve_notes", {id:e.id})}}" class="btn btn-primary btn">Voir notes</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

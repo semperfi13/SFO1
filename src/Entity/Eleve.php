@@ -72,10 +72,11 @@ class Eleve
     private $photo;
 
 
-    public function __toString()
-    {
-        return $this->notes;
-    }
+    // public function __toString()
+    // {
+    //     return $this->notes;
+    //     return $this->parent;
+    // }
 
 
 

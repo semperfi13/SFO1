@@ -17,10 +17,8 @@ services:
     App\service\UploaderService:
         
 
-
-    App\EvenListener\LoginListener:
-        tags:
-            - { name : 'kernel.event_listener', event : 'kernel.request' }
+    App\EventSubscriber\LoginSubscriber:
+        arguments: ['@App\Repository\HistoriqueconnexionRepository', '@request_stack']
             
 
                 
