@@ -6,7 +6,7 @@
 <h3>La liste des élèves</h3>
    <div class="card">
         <div class="card-body">
-            <table class="table table-default">
+            <table class="table table-default" id="myTable">
                 <thead>
                     <tr>
                         <th>#</th>
@@ -44,5 +44,16 @@
         </div>
     </div>
 <a href="{{path("app_ecoleeleve_add")}}" class="btn btn-primary">Ajouter un élève</a>
+
+{% endblock %}
+
+{% block javascripts %}
+   <script>
+
+
+$(document).ready( function () {
+    $('#myTable').DataTable()
+} )
+</script>
 
 {% endblock %}

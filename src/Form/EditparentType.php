@@ -17,7 +17,7 @@ class EditparentType extends AbstractType
             ->add('prenom')
             ->add('telephone')
             ->add('isActive')
-            ->add('Enregistrer', SubmitType::class, ["label" => "Enregistrer"]);;
+            ->add('Enregistrer', SubmitType::class, ["label" => "Enregistrer"]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
